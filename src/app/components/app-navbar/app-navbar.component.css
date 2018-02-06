@@ -1,0 +1,40 @@
+.ddspan {
+  width: 20%;
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: red;
+  border: solid 1px;
+  margin-left: 5px;
+}
+.ddm {
+  width: 15em;
+}
+
+.eyy {
+  left: auto;
+}
+
+.dropdown-menu > li > a {
+  background-color: blue;
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.43;
+  color: #333;
+  white-space: nowrap;
+}
+
+/* .dropdown-menu {
+  background-color: blue;
+  width: 0.5em;
+} */
+/*
+ngbdropdownmenu {
+  background-color: blue;
+} */
+
+/* #dropdown01 {
+  background-color: blue;
+} */

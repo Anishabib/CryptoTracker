@@ -1,0 +1,13 @@
+<ul>
+  <div *ngFor="let crypto of favCryptoObservable | async">
+    <ngb-alert type="info" [dismissible]="false">
+      <h3>
+        <a href="#">{{crypto.name}}</a>
+      </h3>
+      <p>{{crypto.quantity}}</p>
+      <div>
+        <a href="{{crypto.url}}" target="_blank" class="btn btn-danger">View Currency</a>
+      </div>
+    </ngb-alert>
+  </div>
+</ul>
