@@ -21,12 +21,7 @@ export class LandingPageComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    const volume_traded = '24h_volume_usd';
-    // this.http.get('https://api.coinmarketcap.com/v1/ticker/').subscribe(data => {
-    //   console.log(data);
-    // });
-
-    this.http.get<Coin[]>('https://api.coinmarketcap.com/v1/ticker/?convert=CAD').subscribe(data => {
+    this.http.get<Coin[]>('https://api.coinmarketcap.com/v1/ticker/').subscribe(data => {
       console.log(data);
       this.coins = data;
     });
