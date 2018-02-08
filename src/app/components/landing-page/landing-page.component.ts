@@ -17,6 +17,7 @@ export class LandingPageComponent implements OnInit {
   thisObj: Object;
   coins: Coin[];
   fiat: string;
+  amount: number;
 
   constructor(private http: HttpClient) {}
 
@@ -25,5 +26,14 @@ export class LandingPageComponent implements OnInit {
       console.log(data);
       this.coins = data;
     });
+    this.amount = 5;
+  }
+
+    percentColor(num: number) {
+      if (num >= 0) {
+        return true;
+      } else {
+        return false;
+      }
   }
 }
