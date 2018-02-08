@@ -19,7 +19,7 @@
       <td>{{coin.market_cap_usd | currency:'USD':number:0}}</td>
       <td>{{coin['24h_volume_usd'] | currency:'USD':number:0}}</td>
       <td>{{coin.available_supply | number:0}}</td>
-      <td>{{coin.percent_change_24h/100 | percent:'.2'}}</td>
+      <td [ngClass]="coin.percent_change_24h >= 0 ? 'positive' : 'negative'">{{coin.percent_change_24h/100 | percent:'.2'}}</td>
     </tr>
   </tbody>
 </table>

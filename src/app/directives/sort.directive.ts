@@ -25,12 +25,8 @@ export class SortDirective implements OnInit {
   }
 
   sortArray(): Array<any> {
-    // const tempArray: Array<any> = this.data;
     const tempArray: Array<any> = this.data;
-    // console.log(this.data);
     tempArray.sort((a, b) => {
-      // console.log(a);
-      // console.log(b);
 
       const aKey = a[this.key];
       if (isNaN(a[this.key])) {
@@ -40,7 +36,7 @@ export class SortDirective implements OnInit {
       } else {
         const str1: number = a[this.key];
         const str2: number = b[this.key];
-        return this.toggleSort ? str1 - str2 : -1;
+        return this.toggleSort ? str1 - str2 : str2 - str1;
       }
       // if (this.toggleSort) {
       //   if (str1 < str2) {
