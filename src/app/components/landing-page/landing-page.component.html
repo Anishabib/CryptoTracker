@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table draggable">
   <thead>
     <tr>
       <th appSort [data]=this.coins [sortKey]="'rank'">Rank</th>
@@ -15,10 +15,10 @@
       <td>{{coin.rank}}</td>
       <td>{{coin.name}}</td>
       <td *ngIf="coin.price_usd <= 1">{{coin.price_usd | currency:'USD':number:'1.6-6'}}</td>
-      <td *ngIf="coin.price_usd > 1">{{coin.price_usd | currency:'USD':'symbol-narrow'}}</td>
-      <td>{{coin.market_cap_usd | currency:'USD':number:0}}</td>
-      <td>{{coin['24h_volume_usd'] | currency:'USD':number:0}}</td>
-      <td>{{coin.available_supply | number:0}}</td>
+      <td *ngIf="coin.price_usd > 1">{{coin.price_usd | currency:'USD'}}</td>
+      <td>{{coin.market_cap_usd | currency:'USD':number:'0.0-0'}}</td>
+      <td>{{coin['24h_volume_usd'] | currency:'USD':number:'0.0-0'}}</td>
+      <td>{{coin.available_supply | number: 0}}</td>
       <td [ngClass]="coin.percent_change_24h >= 0 ? 'positive' : 'negative'">{{coin.percent_change_24h/100 | percent:'.2'}}</td>
     </tr>
   </tbody>

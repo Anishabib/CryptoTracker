@@ -1,3 +1,25 @@
-<p>
-  top-bar works!
-</p>
+<nav class="navbar navbar-expand-md navbar-light bg-light topbar">
+  <div class="navbar-collapse collapse dual-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="list-inline-item">Cryptocurrencies:
+        <a href="#" routerLink="/">{{global.active_currencies}}</a>
+      </li>
+      <li class="list-inline-item">/ Markets:
+        <a href="#" routerLink="/">{{global.active_markets}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-collapse collapse dual-collapse">
+    <ul class="navbar-nav ml-auto">
+      <li class="list-inline-item">Market Cap:
+        <a href="#" routerLink="/">{{global.total_market_cap_usd | currency:'USD': number:'0.0-0'}}</a>
+      </li>
+      <li class="list-inline-item">/ 24h Volume:
+        <a href="#" routerLink="/">{{global.total_24h_volume_usd | currency:'USD': number:'0.0-0'}}</a>
+      </li>
+      <li class="list-inline-item">/ BTC Dominance:
+        <a href="#" routerLink="/">{{global.bitcoin_percentage_of_market_cap/100 | percent:'.2'}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
