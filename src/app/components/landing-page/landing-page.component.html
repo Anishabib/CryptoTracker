@@ -1,17 +1,17 @@
 <table class="table draggable">
   <thead>
     <tr>
-      <th appSort [data]=this.coins [sortKey]="'rank'">Rank</th>
-      <th appSort [data]=this.coins [sortKey]="'name'">Name</th>
-      <th appSort [data]=this.coins [sortKey]="'price_usd'">Price</th>
-      <th appSort [data]=this.coins [sortKey]="'market_cap_usd'">Market Cap</th>
-      <th appSort [data]=this.coins [sortKey]="'24h_volume_usd'">Volume Traded (24h)</th>
-      <th appSort [data]=this.coins [sortKey]="'available_supply'">Available Supply</th>
-      <th appSort [data]=this.coins [sortKey]="'percent_change_24h'">Value Changed (24h)</th>
+      <th appSort [data]=this.allCoins [sortKey]="'rank'">Rank</th>
+      <th appSort [data]=this.allCoins [sortKey]="'name'">Name</th>
+      <th appSort [data]=this.allCoins [sortKey]="'price_usd'">Price</th>
+      <th appSort [data]=this.allCoins [sortKey]="'market_cap_usd'">Market Cap</th>
+      <th appSort [data]=this.allCoins [sortKey]="'24h_volume_usd'">Volume Traded (24h)</th>
+      <th appSort [data]=this.allCoins [sortKey]="'available_supply'">Available Supply</th>
+      <th appSort [data]=this.allCoins [sortKey]="'percent_change_24h'">Value Changed (24h)</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let coin of coins">
+    <tr *ngFor="let coin of allCoins">
       <td>{{coin.rank}}</td>
       <td>{{coin.name}}</td>
       <td *ngIf="coin.price_usd <= 1">{{coin.price_usd | currency:'USD':number:'1.6-6'}}</td>
