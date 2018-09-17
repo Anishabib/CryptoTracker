@@ -19,12 +19,12 @@ export class TopBarComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get<Global>('http://localhost:3000/getGlobal').subscribe(data => {
+    this.http.get<Global>('http://localhost:5000/getGlobal').subscribe(data => {
       console.log(data);
       this.global = data;
     });
 
-    this.http.get<Coin[]>('http://localhost:3000/getAll?all=true').subscribe(data => {
+    this.http.get<Coin[]>('http://localhost:5000/getAll?all=true').subscribe(data => {
       this.currencies = Object.keys(data).length;
     });
   }

@@ -16,10 +16,10 @@
     </ul>
     <ul class="navbar-nav ddul">
       <li class="nav-item dropdown ddli" ngbDropdown>
-        <a class="nav-link dropdown-toggle dda" id="dropdown01" ngbDropdownToggle>{{langs[0]}}</a>
+        <a class="nav-link dropdown-toggle dda" id="dropdown01" ngbDropdownToggle>{{selectedFiat}}</a>
         <div class="dropdown-menu ddm" aria-labelledby="dropdown01" ngbDropdownMenu>
-          <div *ngFor="let lang of langs">
-            <span class="ddspan pointer" (click)=test(lang)>{{lang}}</span>
+          <div *ngFor="let fiat of fiats">
+            <span class="ddspan pointer" (click)=changeFiat(fiat)>{{fiat}}</span>
           </div>
         </div>
       </li>

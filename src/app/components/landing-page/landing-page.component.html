@@ -11,15 +11,38 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let coin of allCoins">
-      <td>{{coin.rank}}</td>
-      <td>{{coin.name}}</td>
-      <td *ngIf="coin.price_usd <= 1">{{coin.price_usd | currency:'USD':number:'1.6-6'}}</td>
-      <td *ngIf="coin.price_usd > 1">{{coin.price_usd | currency:'USD'}}</td>
-      <td>{{coin.market_cap_usd | currency:'USD':number:'0.0-0'}}</td>
-      <td>{{coin['24h_volume_usd'] | currency:'USD':number:'0.0-0'}}</td>
-      <td>{{coin.available_supply | number: 0}}</td>
-      <td [ngClass]="coin.percent_change_24h >= 0 ? 'positive' : 'negative'">{{coin.percent_change_24h/100 | percent:'.2'}}</td>
-    </tr>
+    <ng-container *ngIf="selectedFiat === 'USD'; else notUSD">
+      <div *ngIf="coin"></div>
+      <tr *ngFor="let coin of allCoins">
+        <td>{{coin.rank}}</td>
+        <td>{{coin.name}}</td>
+        <td *ngIf="coin.price_usd <= 1">{{coin.price_usd | currency:'USD':number:'1.6-6'}}</td>
+        <td *ngIf="coin.price_usd > 1">{{coin.price_usd | currency:'USD'}}</td>
+        <td>{{coin.market_cap_usd | currency:'USD':number:'0.0-0'}}</td>
+        <td>{{coin['24h_volume_usd'] | currency:'USD':number:'0.0-0'}}</td>
+        <td>{{coin.available_supply | number: 0}}</td>
+        <td [ngClass]="coin.percent_change_24h >= 0 ? 'positive' : 'negative'">{{coin.percent_change_24h/100 | percent:'.2'}}</td>
+      </tr>
+    </ng-container>
+    <ng-template #notUSD>
+      <tr *ngFor="let coin of allCoins">
+        <td>{{coin.rank}}</td>
+        <td>{{coin.name}}</td>
+        <td *ngIf="coin.price_usd <= 1">{{coin.price_usd * xrate | currency:'USD':number:'1.6-6'}}</td>
+        <td *ngIf="coin.price_usd > 1">{{coin.price_usd * xrate| currency:'USD'}}</td>
+        <td>{{coin.market_cap_usd * xrate | currency:'USD':number:'0.0-0'}}</td>
+        <td>{{coin['24h_volume_usd'] * xrate | currency:'USD':number:'0.0-0'}}</td>
+        <td>{{coin.available_supply | number: 0}}</td>
+        <td [ngClass]="coin.percent_change_24h >= 0 ? 'positive' : 'negative'">{{coin.percent_change_24h/100 | percent:'.2'}}</td>
+      </tr>
+    </ng-template>
   </tbody>
 </table>
+
+<!-- <table class="table">
+  <tbody>
+    <tr *ngFor="let rate of rateList">
+      <td>{{rate.key}} : {{rate.value}}</td>
+    </tr>
+  </tbody>
+</table> -->

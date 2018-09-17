@@ -14,6 +14,7 @@ import { FavCryptoComponent } from './components/fav-crypto/fav-crypto.component
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { SortDirective } from './directives/sort.directive';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { DataService } from './services/data.service';
 
 const appRoutes: Routes = [
   { path: 'favCrypto', component: FavCryptoComponent },
@@ -21,7 +22,14 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, AppNavbarComponent, FavCryptoComponent, LandingPageComponent, SortDirective, TopBarComponent],
+  declarations: [
+    AppComponent,
+    AppNavbarComponent,
+    FavCryptoComponent,
+    LandingPageComponent,
+    SortDirective,
+    TopBarComponent
+  ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -31,7 +39,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
